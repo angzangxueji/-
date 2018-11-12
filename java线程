@@ -1,0 +1,65 @@
+1:Runable: 
+         Java不允许继承 使用Runable接口的类可以再继承其他类
+         方便资源共享 实现共享一个对象实例
+2:synchroized(同步)  asynchronized(异步）
+
+  synchroized(同步)  共享
+  asynchroized(异步)   独立不受其他制约
+
+3:volatile  使变量在多个线程间可见  不具备synchroized关键字的原子性
+
+4: this关键字:
+             1:调用本类中的属性（成员变量）
+             2:调用本类中的其他方法；
+             3:this调用本类中的其他构造方法，调用时要放在构造方法的首行（this."xxx")调用含参的构造方法;
+
+5:java.lang.Thread类代表线程类 提供了一个run方法 run()方法体中放置的准备执行的代码，自定义的线程类需要继承Thread类并重写run()方法；
+
+6:       用户线程
+   线程
+         守护线程:daemonThread（在没有其他用户线程运行时自动退出)
+
+
+7:调用 thread.setDaemon(true)  把用户线程变为守护线程
+
+8:JVM调度线程的执行顺序是随机的
+
+JVM在一个时刻只能运行一个线程 用抢占方式或分时间片方式来轮换执行线程
+
+
+常用方法：
+
+       .getState()  当前状态
+       .setDaemon(boolean)  转化用户/守护 线程
+       .setPriority(int newPriority)  更改线程优先级 
+       .sleep(long millis)throw InterruptedException  在指定的毫秒内让当前线程休眠
+       .interrupt7 中断线程
+       .join()throw InterrruptedException  等待终止
+       .yield() 暂停当前线程执行其它线程
+
+9: wait/join ()方法使一个线程进入等待
+
+
+线程睡眠：
+         .sleep() 方法会使当前线程进入睡眠状态 相应毫秒数后会苏醒
+
+CountDownLatch:
+                 同步工具类：协调多线程间同步 使一个线程在等待另一个线程完成各自工作后再继续执行  计数器初始线程数量 每一个线程完成自己数量后计数器减1 计数器为零时 所有线程完成任务
+             不足:一次性 计数器只能在构造方法中初始化一次
+
+10:  锁  
+        Condition - Lock   await/signal
+        Object    - synchorized   wait/notify
+
+
+
+
+
+
+
+
+
+
+
+
+

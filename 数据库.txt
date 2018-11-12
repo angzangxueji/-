@@ -1,0 +1,29 @@
+查看数据库：show databases;
+新建一个数据库：create database lianxi;
+进入数据库： user lianxi
+在数据库中新建一个学生表： create table student(id int, name varchar(20),start int);
+在学生表中插入一条信息：insert into student (id,name,start)value(01,'lihua',2011);
+                      insert into student (id,name,start)value(02,'zhangsan',2011);
+                      insert into student (id,name,start)value(03,'lisi',2011);
+                       insert into student (id,name,start)value(04,'wangwu',2012);
+查看学生表的信息：select * from student;
+新建一个老师表：create table teacher(id int, name varchar(20),class varchar(20));
+在老师表中插入一条信息： insert into teacher (id,name,class)value(1,'teacher1','yuwen');
+                        insert into teacher (id,name,class)value(2,'teacher2','math');
+                       insert into teacher (id,name,class)value(3,'teacher3','English');
+查看老师表的信息：select * from teacher;
+联系表: insert into sc(sid,tid)value(01,1),(02,3);
+插入多条信息：  insert into sc(sid,tid)value(01,3),(02,2),(03,2),(03,3);
+更改主键：ALTER TABLE sc ADD PRIMARY KEY (sid);
+通过学生的名字去查找老师：select * from teacher where teacher.id in(select tid from sc where sc.sid in(select id from student where name like 'lihua'));
+通过老师找学生：select * from student where student.id in(select sid from sc where sc.tid in(select id from teacher where name like 'teacher1'));
+全链接：select student.name,teacher.name,student.start from sc join student on student.id=sc.sid  sc join teacher on teacher.id=sc.tid where start<2011 and teacher.name='teacher1';
+
+  注释(select id from student where name like 'lihua')找到了lihua的学号
+(select tid from sc where sc.sid in(select id from student where name like 'lihua'));找到了sc中的tid
+
+
+
+
+  注释(select id from student where name like 'lihua')找到了lihua的学号
+(select tid from sc where sc.sid in(select id from student where name like 'lihua'));找到了sc中的tid

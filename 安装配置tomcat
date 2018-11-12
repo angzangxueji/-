@@ -1,0 +1,12 @@
+1:解压缩tomcat.tar.gz
+2:在tomcat->bin->startup.sh添加环境变量
+  JAVA_HOME=/usr/lib/jdk/jdk1.8.0_151
+  JRE_HOME=${JAVA_HOME}/jre
+  PATH=${JAVA_HOME}/bin:$PATH
+  CLASSPATH=.:${JAVA_HOME}/lib/dt.jar:${JAVA_HOME}/lib/tools.jar
+  TOMCAT_HOME=/opt/tomcat/apache-tomcat-9.0.4
+
+3:打开关闭脚本添加startup.sh相同配置
+4:开启关闭tomcat
+ ./startup.sh
+5浏览器输入 localhost:8080

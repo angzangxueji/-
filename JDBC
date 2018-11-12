@@ -1,0 +1,28 @@
+1:
+  driver="com.mysql.jdbc.Driver";
+  uri="jdbc:mysql://localhost:3306/xxx";
+  name=""
+  passwd=""
+2:
+  Connection
+   Connection conn=null;
+   PrepareStatement psm = null;
+  try{
+      Class.forName(driver);
+      try{
+      conn=DriverManager.getConnection(uri,name,passwd);
+      if(conn.isClosed()){
+        System.out.println("")
+    }
+  }catch()
+    return conn;
+  }
+}
+ 3:
+    Statement: 执行SQL    executeUpdate() 实现SQL的增删改
+                          executeQuery() 查询SQL
+     executeQuery 查询的数据会返回ResultSet对象  （查询结果)   使用ResultSet的next()移动至下一笔数据 使用getXXX()取得数据 如getString() getInt()取得相应类型的数据
+     1: 获取Statement
+       Statement stmt = conn.creatStatement();
+     2:
+   
